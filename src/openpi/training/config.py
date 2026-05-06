@@ -893,7 +893,9 @@ _CONFIGS = [
             base_config=DataConfig(prompt_from_task=True),
             default_prompt="move the object smoothly",
         ),
-        weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/home/kemove/zzk_data/openpi/checkpoints/pi05_base/params"
+        ),
         num_train_steps=30_000,
         batch_size=32,
         save_interval=1000,
