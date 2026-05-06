@@ -13,7 +13,8 @@ import shutil
 from typing import Literal
 
 import h5py
-from lerobot.common.datasets.lerobot_dataset import LEROBOT_HOME
+# from lerobot.common.datasets.lerobot_dataset import LEROBOT_HOME
+from lerobot.common.datasets.lerobot_dataset import HF_LEROBOT_HOME as LEROBOT_HOME
 from lerobot.common.datasets.lerobot_dataset import LeRobotDataset
 import numpy as np
 import torch
@@ -167,7 +168,6 @@ def port_brx(
 
     dataset = create_empty_dataset(repo_id, mode=mode, dataset_config=dataset_config)
     dataset = populate_dataset(dataset, hdf5_files, task=task, episodes=episodes)
-    dataset.consolidate()
 
     if push_to_hub:
         dataset.push_to_hub(

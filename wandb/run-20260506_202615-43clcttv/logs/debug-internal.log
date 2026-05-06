@@ -1,0 +1,10 @@
+{"time":"2026-05-06T20:26:15.785370402+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/kemove/zzk_data/openpi/wandb/run-20260506_202615-43clcttv/logs/debug-core.log"}
+{"time":"2026-05-06T20:26:16.993808691+08:00","level":"INFO","msg":"created new stream","id":"43clcttv"}
+{"time":"2026-05-06T20:26:16.993902827+08:00","level":"INFO","msg":"stream: started","id":"43clcttv"}
+{"time":"2026-05-06T20:26:16.994124024+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"43clcttv"}
+{"time":"2026-05-06T20:26:16.994214757+08:00","level":"INFO","msg":"handler: started","stream_id":"43clcttv"}
+{"time":"2026-05-06T20:26:16.994340222+08:00","level":"INFO","msg":"sender: started","stream_id":"43clcttv"}
+{"time":"2026-05-06T20:26:18.142055785+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-05-06T20:27:42.409998044+08:00","level":"INFO","msg":"stream: closing","id":"43clcttv"}
+{"time":"2026-05-06T20:27:42.410035574+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-05-06T20:27:42.410074094+08:00","level":"INFO","msg":"Stopped system monitor"}

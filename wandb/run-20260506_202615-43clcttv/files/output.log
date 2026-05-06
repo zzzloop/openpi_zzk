@@ -1,0 +1,98 @@
+20:26:18.541 [I] Loaded norm stats from /home/kemove/zzk_data/openpi/assets/pi05_brx_finetune/zzk/brx_act (205569:config.py:197)
+20:26:18.544 [I] data_config: DataConfig(repo_id='zzk/brx_act', asset_id='zzk/brx_act', norm_stats={'state': NormStats(mean=array([ 3.10652285e-05,  1.25767358e-04, -1.23735852e-04,  1.15668714e-01,
+       -1.49722993e-01, -2.82107770e-01, -1.34128526e-01,  2.58435994e-01,
+       -1.91145897e-01,  2.60585964e-01,  4.15224023e-03,  3.43909510e-03,
+       -1.59104854e-01, -2.58379489e-01,  3.00362349e-01, -6.54447228e-02,
+       -1.89146489e-01,  1.81680277e-01, -2.06937954e-01,  3.68807698e-03,
+        2.95348675e-03, -3.38437371e-02, -8.26990068e-01]), std=array([1.03421757e-04, 1.99156580e-04, 1.42164092e-04, 3.43834430e-01,
+       2.71208107e-01, 1.49200082e-01, 3.03523809e-01, 1.69167846e-01,
+       1.85351565e-01, 3.14126521e-01, 6.39382470e-03, 5.07624680e-03,
+       2.77858794e-01, 2.62879908e-01, 1.73312634e-01, 2.94819772e-01,
+       1.82795018e-01, 2.06506863e-01, 2.87690789e-01, 6.47603162e-03,
+       5.14108827e-03, 1.11896031e-01, 1.13644250e-01]), q01=array([-4.26748515e-04, -5.14313919e-04, -5.53168058e-04, -5.38381186e-01,
+       -5.74336873e-01, -6.63756515e-01, -7.37204156e-01, -1.15046579e-01,
+       -5.43583739e-01, -3.37659894e-01,  0.00000000e+00,  0.00000000e+00,
+       -9.94388715e-01, -7.80661780e-01, -4.18742683e-02, -5.81684853e-01,
+       -5.52457907e-01, -3.28589652e-01, -7.96105008e-01,  0.00000000e+00,
+        0.00000000e+00, -3.33271802e-01, -1.09931360e+00]), q99=array([ 2.30964434e-04,  6.44059309e-04,  1.64367273e-04,  9.53821130e-01,
+        4.32325751e-01,  3.13941723e-02,  7.27304064e-01,  6.81489433e-01,
+        2.76400181e-01,  7.49977104e-01,  1.90658783e-02,  1.49453201e-02,
+        3.00086976e-01,  2.74124433e-01,  6.63117529e-01,  6.44359726e-01,
+        2.60290294e-01,  7.43209622e-01,  3.53840819e-01,  1.90517777e-02,
+        1.53678955e-02,  2.19444948e-01, -5.86429457e-01])), 'actions': NormStats(mean=array([-3.10652213e-05, -1.25767328e-04,  1.23735852e-04,  9.58667509e-03,
+       -1.08585111e-03,  6.21998822e-03, -2.83291354e-03,  7.60875817e-04,
+        1.24217928e-04, -2.09563016e-03,  4.23030695e-03,  4.23030695e-03,
+       -5.31263556e-03, -1.63484551e-03, -6.05085772e-03, -2.86372984e-03,
+       -1.06688379e-03, -7.57147442e-04,  6.87795132e-03,  3.88054899e-03,
+        3.88054899e-03,  2.12406507e-03, -1.30549371e-02]), std=array([1.03421735e-04, 1.99156624e-04, 1.42164106e-04, 1.64621919e-01,
+       8.93329531e-02, 6.42168298e-02, 1.47585154e-01, 7.06786960e-02,
+       7.48118684e-02, 1.00729130e-01, 6.74943021e-03, 6.74943021e-03,
+       1.42385006e-01, 8.09415132e-02, 7.47655779e-02, 1.59160227e-01,
+       6.98534399e-02, 7.12128058e-02, 9.00514349e-02, 6.91847736e-03,
+       6.91847736e-03, 4.00841013e-02, 4.48699221e-02]), q01=array([-2.32092587e-04, -6.45924644e-04, -1.65506218e-04, -4.75311428e-01,
+       -2.67026636e-01, -1.77723420e-01, -4.90810719e-01, -2.22214358e-01,
+       -2.28320499e-01, -3.47364058e-01,  0.00000000e+00,  0.00000000e+00,
+       -5.15877497e-01, -2.49534298e-01, -2.72253072e-01, -5.36617657e-01,
+       -2.22123708e-01, -2.07536510e-01, -2.95416714e-01,  0.00000000e+00,
+        0.00000000e+00, -1.22158764e-01, -1.22833299e-01]), q99=array([4.25620363e-04, 5.13692140e-04, 5.52029113e-04, 6.30246703e-01,
+       3.29667613e-01, 2.11665024e-01, 5.03623137e-01, 2.06617148e-01,
+       2.14183477e-01, 3.57492057e-01, 2.00407797e-02, 2.00407797e-02,
+       4.69033864e-01, 2.56783405e-01, 1.80413496e-01, 5.17554705e-01,
+       2.07732191e-01, 2.17228495e-01, 2.94813121e-01, 2.07764746e-02,
+       2.07764746e-02, 1.39207011e-01, 1.53045069e-01]))}, repack_transforms=Group(inputs=[RepackTransform(structure={'images': {'left_eye': 'observation.images.left_eye', 'left_wrist': 'observation.images.left_wrist', 'right_eye': 'observation.images.right_eye', 'right_wrist': 'observation.images.right_wrist'}, 'state': 'observation.state', 'actions': 'action', 'prompt': 'prompt'})], outputs=()), data_transforms=Group(inputs=(BRXInputs(model_type=<ModelType.PI05: 'pi05'>), DeltaActions(mask=(True, True, True, True, True, True, True, True, True, True, False, False, True, True, True, True, True, True, True, False, False, True, True))), outputs=(AbsoluteActions(mask=(True, True, True, True, True, True, True, True, True, True, False, False, True, True, True, True, True, True, True, False, False, True, True)), BRXOutputs())), model_transforms=Group(inputs=[InjectDefaultPrompt(prompt='move the object smoothly'), ResizeImages(height=224, width=224), TokenizePrompt(tokenizer=<openpi.models.tokenizer.PaligemmaTokenizer object at 0x739b41755110>, discrete_state_input=True), PadStatesAndActions(model_action_dim=32)], outputs=()), use_quantile_norm=True, action_sequence_keys=('action',), prompt_from_task=True, rlds_data_dir=None, action_space=None, datasets=()) (205569:data_loader.py:243)
+Resolving data files: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 123/123 [00:00<00:00, 96955.35it/s]
+20:26:21.299 [I] local_batch_size: 32                                                             (205569:data_loader.py:324)
+20:26:48.305 [I] Initialized data loader:
+[0].images['base_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['left_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['right_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].image_masks['base_0_rgb']: (32,)@bool
+[0].image_masks['left_wrist_0_rgb']: (32,)@bool
+[0].image_masks['right_wrist_0_rgb']: (32,)@bool
+[0].state: (32, 32)@float32
+[0].tokenized_prompt: (32, 200)@int32
+[0].tokenized_prompt_mask: (32, 200)@bool
+[1]: (32, 16, 32)@float32 (205569:train.py:227)
+20:26:51.428 [I] Downloading gs://openpi-assets/checkpoints/pi05_base/params to /home/kemove/.cache/openpi/openpi-assets/checkpoints/pi05_base/params (205569:download.py:86)
+20:26:51.428 [W] gsutil not found, falling back to gcsfs. This may fail if GCP credentials are not configured correctly. (205569:download.py:111)
+  0%|                                                                                                                                          | 5.76M/11.6G [00:29<16:42:14, 207kiB/s]
+Traceback (most recent call last):
+  File "/home/kemove/zzk_data/openpi/scripts/train.py", line 280, in <module>
+    main(_config.cli())
+  File "/home/kemove/zzk_data/openpi/scripts/train.py", line 236, in main
+    train_state, train_state_sharding = init_train_state(config, init_rng, mesh, resume=resuming)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/.venv/lib/python3.11/site-packages/jaxtyping/_decorator.py", line 559, in wrapped_fn
+    return wrapped_fn_impl(args, kwargs, bound, memos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/.venv/lib/python3.11/site-packages/jaxtyping/_decorator.py", line 483, in wrapped_fn_impl
+    out = fn(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/scripts/train.py", line 122, in init_train_state
+    partial_params = _load_weights_and_validate(config.weight_loader, train_state_shape.params.to_pure_dict())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/scripts/train.py", line 75, in _load_weights_and_validate
+    loaded_params = loader.load(params_shape)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/src/openpi/training/weight_loaders.py", line 52, in load
+    loaded_params = _model.restore_params(download.maybe_download(self.params_path), restore_type=np.ndarray)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kemove/zzk_data/openpi/src/openpi/shared/download.py", line 91, in maybe_download
+    _download_gsutil(url, scratch_path, **kwargs)
+  File "/home/kemove/zzk_data/openpi/src/openpi/shared/download.py", line 114, in _download_gsutil
+    _download_fsspec(url, local_path, **kwargs)
+  File "/home/kemove/zzk_data/openpi/src/openpi/shared/download.py", line 138, in _download_fsspec
+    time.sleep(1)
+KeyboardInterrupt
+Exception ignored in: <module 'threading' from '/home/kemove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/home/kemove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/threading.py", line 1560, in _shutdown
+    atexit_call()
+  File "/home/kemove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/thread.py", line 31, in _python_exit
+    t.join()
+  File "/home/kemove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "/home/kemove/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:
