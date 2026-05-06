@@ -887,6 +887,8 @@ _CONFIGS = [
             pi05=True,
             action_dim=32,
             action_horizon=16,
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
         ),
         data=LeRobotBRXDataConfig(
             repo_id="zzk/brx_act",
@@ -896,10 +898,18 @@ _CONFIGS = [
         weight_loader=weight_loaders.CheckpointWeightLoader(
             "/home/kemove/zzk_data/openpi/checkpoints/pi05_base/params"
         ),
-        num_train_steps=30_000,
-        batch_size=32,
-        save_interval=1000,
-        keep_period=5000,
+        num_train_steps=10_000,
+        batch_size=8,
+        save_interval=500,
+        keep_period=2500,
+        freeze_filter=pi0_config.Pi0Config(
+            pi05=True,
+            action_dim=32,
+            action_horizon=16,
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+        ).get_freeze_filter(),
+        ema_decay=None,
     ),
     #
     # Fine-tuning DROID configs.
