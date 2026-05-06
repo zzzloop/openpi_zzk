@@ -898,10 +898,10 @@ _CONFIGS = [
         weight_loader=weight_loaders.CheckpointWeightLoader(
             "/home/kemove/zzk_data/openpi/checkpoints/pi05_base/params"
         ),
-        num_train_steps=10_000,
+        num_train_steps=3_000,
         batch_size=8,
-        save_interval=500,
-        keep_period=2500,
+        save_interval=250,
+        keep_period=1000,
         freeze_filter=pi0_config.Pi0Config(
             pi05=True,
             action_dim=32,
