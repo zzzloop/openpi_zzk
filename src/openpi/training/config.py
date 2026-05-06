@@ -17,6 +17,7 @@ import openpi.models.model as _model
 import openpi.models.pi0_config as pi0_config
 import openpi.models.pi0_fast as pi0_fast
 import openpi.models.tokenizer as _tokenizer
+import openpi.policies.brx_policy as brx_policy
 import openpi.policies.aloha_policy as aloha_policy
 import openpi.policies.droid_policy as droid_policy
 import openpi.policies.libero_policy as libero_policy
@@ -269,6 +270,58 @@ class LeRobotAlohaDataConfig(DataConfigFactory):
 
         model_transforms = ModelTransformFactory(default_prompt=self.default_prompt)(model_config)
 
+        return dataclasses.replace(
+            self.create_base_config(assets_dirs, model_config),
+            repack_transforms=self.repack_transforms,
+            data_transforms=data_transforms,
+            model_transforms=model_transforms,
+            action_sequence_keys=self.action_sequence_keys,
+        )
+
+
+@dataclasses.dataclass(frozen=True)
+class LeRobotBRXDataConfig(DataConfigFactory):
+    """Data config for BRX042501 ACT-style 23D joint-target datasets."""
+
+    use_delta_joint_actions: bool = True
+    default_prompt: str | None = None
+    repack_transforms: tyro.conf.Suppress[_transforms.Group] = dataclasses.field(
+        default=_transforms.Group(
+            inputs=[
+                _transforms.RepackTransform(
+                    {
+                        "images": {
+                            "left_eye": "observation.images.left_eye",
+                            "left_wrist": "observation.images.left_wrist",
+                            "right_eye": "observation.images.right_eye",
+                            "right_wrist": "observation.images.right_wrist",
+                        },
+                        "state": "observation.state",
+                        "actions": "action",
+                        "prompt": "prompt",
+                    }
+                )
+            ]
+        )
+    )
+    action_sequence_keys: Sequence[str] = ("action",)
+
+    @override
+    def create(self, assets_dirs: pathlib.Path, model_config: _model.BaseModelConfig) -> DataConfig:
+        data_transforms = _transforms.Group(
+            inputs=[brx_policy.BRXInputs(model_type=model_config.model_type)],
+            outputs=[brx_policy.BRXOutputs()],
+        )
+        if self.use_delta_joint_actions:
+            # BRX action is absolute qpos. Convert non-gripper joints to deltas during training,
+            # and convert model outputs back to absolute qpos during inference.
+            delta_action_mask = _transforms.make_bool_mask(10, -2, 7, -2, 2)
+            data_transforms = data_transforms.push(
+                inputs=[_transforms.DeltaActions(delta_action_mask)],
+                outputs=[_transforms.AbsoluteActions(delta_action_mask)],
+            )
+
+        model_transforms = ModelTransformFactory(default_prompt=self.default_prompt)(model_config)
         return dataclasses.replace(
             self.create_base_config(assets_dirs, model_config),
             repack_transforms=self.repack_transforms,
@@ -824,6 +877,27 @@ _CONFIGS = [
         weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
         num_train_steps=20_000,
         batch_size=64,
+    ),
+    #
+    # Fine-tuning BRX042501 configs.
+    #
+    TrainConfig(
+        name="pi05_brx_finetune",
+        model=pi0_config.Pi0Config(
+            pi05=True,
+            action_dim=32,
+            action_horizon=16,
+        ),
+        data=LeRobotBRXDataConfig(
+            repo_id="zzk/brx_act",
+            base_config=DataConfig(prompt_from_task=True),
+            default_prompt="move the object smoothly",
+        ),
+        weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
+        num_train_steps=30_000,
+        batch_size=32,
+        save_interval=1000,
+        keep_period=5000,
     ),
     #
     # Fine-tuning DROID configs.
