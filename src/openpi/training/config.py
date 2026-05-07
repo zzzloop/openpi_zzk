@@ -911,6 +911,44 @@ _CONFIGS = [
         ).get_freeze_filter(),
         ema_decay=None,
     ),
+    TrainConfig(
+        name="pi05_brx_finetune_long",
+        model=pi0_config.Pi0Config(
+            pi05=True,
+            action_dim=32,
+            action_horizon=16,
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+        ),
+        data=LeRobotBRXDataConfig(
+            repo_id="zzk/brx_act",
+            base_config=DataConfig(prompt_from_task=True),
+            default_prompt="move the object smoothly",
+        ),
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/home/kemove/zzk_data/openpi/checkpoints/pi05_base/params"
+        ),
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=500,
+            peak_lr=1e-5,
+            decay_steps=20_000,
+            decay_lr=1e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=0.5),
+        num_train_steps=20_000,
+        batch_size=8,
+        log_interval=50,
+        save_interval=500,
+        keep_period=2_000,
+        freeze_filter=pi0_config.Pi0Config(
+            pi05=True,
+            action_dim=32,
+            action_horizon=16,
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+        ).get_freeze_filter(),
+        ema_decay=None,
+    ),
     #
     # Fine-tuning DROID configs.
     #
